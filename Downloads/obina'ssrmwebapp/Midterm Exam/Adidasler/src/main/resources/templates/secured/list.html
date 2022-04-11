@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="public/fragments/head-elements :: headElements"></head>
+
+<title>Athlete's List</title>
+<body>
+<div th:replace="public/fragments/header :: header"></div>
+<div id="mainContainer" class="container">
+  <div style="width: 100%;">
+    <h3 style="display: inline;">List of All Registered Athletes</h3>
+
+  </div>
+  <hr/>
+  <table>
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>SSN Number</th>
+      <th>Full Name</th>
+      <th>Phone Number</th>
+      <th>Date of Birth</th>
+      <th>Date Of Registration</th>
+      <th>Total Number of Medals Won</th>
+      <th>Monthly salary</th>
+      <th>Email Address</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="athlete, counter : ${athletes}">
+      <th scope="row" th:text="${counter.count}+${'.'}"></th>
+      <td th:text="${athlete.ssn}"></td>
+      <td th:text="${athlete.fullName}"></td>
+      <td th:text="${athlete.phoneNumber}"></td>
+      <td th:text="${athlete.dateOfBirth}"></td>
+      <td th:text="${athlete.dateOfRegistration}"></td>
+      <td th:text="${athlete.totalNumberOfMedalsWon}"></td>
+      <td th:text="${athlete.monthlySalary}"></td>
+      <td th:text="${athlete.emailAddress}"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div th:replace="public/fragments/footer :: footer"></div>
+  <!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>-->
+</body>
+</html>
